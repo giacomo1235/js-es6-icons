@@ -1,4 +1,4 @@
-const arrFonts = [
+const icons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -113,16 +113,41 @@ const arrFonts = [
 	}
 ];
 
-const eleContainer = document.querySelector('.cards-container')
+const iconsContainer = document.querySelector('.cards-container')
 
-for (let i in arrFonts) {
+/* for (let i in arrFonts) {
 	renderCard(arrFonts[i])
 }
+ */
+function insertIcons (iconsArray, iconsCreationContainer) {
+	iconsCreationContainer.innerHTML = '';
 
-function renderCard (objFont) {
-	const eleCard = document.createElement('div');
-	eleCard.classList.add('card');
-	eleCard.innerHTML = ` <i class="${objFont.prefix}solid ${objFont.prefix}${objFont.name}"></i>
-	<p>${objFont.name}</p>`;
-	eleContainer.append(eleCard);
+	iconsArray.forEach((element) => {
+		const div = document.createElement('div')
+		div.classList.add('card');
+
+		div.innerHTML = `<i class="${element.prefix}solid ${element.prefix}${element.name}" style= "color: ${element.color}" ></i>
+		<p>${element.name}</p>`;
+		iconsCreationContainer.append(div);
+	});
 }
+
+insertIcons(icons, iconsContainer)
+const iconsTypeSelector = document.getElementById('iconsTypeSelector');
+
+iconsTypeSelector.addEventListener('change', function(){
+
+	const iconsTypeSelected = this.value;
+	console.log(iconsTypeSelected);
+	if (iconsTypeSelected != 'all') {
+		const filteredIcons = icons.filter((iconArgument) => {
+			if (iconArgument.type == iconsTypeSelected) {
+				return true;
+			}
+		});
+        insertIcons(filteredIcons, iconsContainer);
+	} else {
+		filteredIcons = icons;
+	}
+
+});
