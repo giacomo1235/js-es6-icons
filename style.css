@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    color: aqua;
+    background-color: white;
+}
+
+.selector {
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    background-color: aqua;
+}
+
+.cards-container {
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background-color: lightgray;
+    
+}
+
+.card {
+    text-transform: uppercase;
+    background-color: whitesmoke;
+    margin: 20px;
+   padding: 20px 40px;
+   width: 20%;
+   text-align: center;
+   border: 1px solid gray;
+   border-radius: 10px;
+   box-shadow: 10px 10px 10px;
+
+}
